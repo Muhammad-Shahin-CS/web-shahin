@@ -1,0 +1,283 @@
+
+/* Base styles */
+body {
+    background: url('images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #000; /* Set text color to black */
+    margin-bottom: 20px; 
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 0;
+    text-align: center; 
+}
+
+.nav-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Adjust space between items as needed */
+    flex-direction: row; /* Ensure items are in a row by default */
+}
+
+.nav-center a {
+    color: #fff;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 7px;  
+}
+
+.nav-center a:hover {
+    background-color: #666;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block; 
+}
+
+.dropbtn {
+    background-color: rgb(77, 77, 77);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;  
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(77, 77, 77);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 10px;  
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #666;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #666;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+.header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #000; 
+}
+
+.profile-info {
+    text-align: center;
+}
+
+.profile-info h1 {
+    font-size: 2em;
+    margin: 0;
+    font-weight: bold; /* Make name bold */
+}
+
+.profile-info p {
+    font-size: 1em;
+    line-height: 1.4;
+    margin-top: 10px;
+}
+
+.skills, .projects {
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.skills h2, .projects h2 {
+    margin-top: 0;
+}
+
+.skills ul, .projects ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skills li, .projects li {
+    background: #f1f1f1;
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.social-box {
+    width: 50px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); 
+    border-radius: 20px; 
+    background: rgb(237, 237, 237); 
+    position: fixed;
+    right: 10px;
+    top: 8%;
+    margin-bottom: 134%; 
+    transform: translateY(0);
+    flex-direction: column;
+    gap: 8px;
+}
+
+.social-icon img {
+    width: 30px; /* Adjust size as needed */
+    height: 30px; /* Adjust size as needed */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+ 
+    
+    .profile-photo {
+        width: 160px;
+        height: 160px;
+    }
+
+    .profile-info h1 {
+        font-size: 1.5em;
+    }
+
+    .profile-info p {
+        font-size: 0.9em;
+    }
+
+    .skills, .projects {
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .skills li, .projects li {
+        padding: 6px;
+    }
+
+    .social-box {
+        width: 40px;
+        right: 5px;
+        bottom: 5px;
+    }
+
+    .social-icon img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+
+
+/* CONTACT PAGE */
+
+/* Container styling for the form */
+.contact-form {
+    width: 80%;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Label styling */
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Input and textarea styling */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Focused input/textarea styling */
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #4a90e2; /* Light blue border on focus */
+    background-color: #eaf6ff; /* Light blue background on focus */
+    outline: none;
+}
+
+/* Submit button styling */
+.submit-button {
+    display: inline-block;
+    background-color: #1e70ce;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+}
+
+/* Hover effect for the submit button */
+.submit-button:hover {
+    background-color: #0062c3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight upward movement on hover */
+}
+
+/* Active state for the submit button */
+.submit-button:active {
+    background-color: #3a96ff; /* Even darker blue when clicked */
+    transform: translateY(0); /* Reset movement when active */
+}
