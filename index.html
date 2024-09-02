@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Shahin CS | AI Developer</title>
-     <!-- Link to the Favicon -->
-     <link rel="icon" href="/static/images/profilee.png" type="image/png">
-     
+    <!-- Link to the Favicon --> 
+    <link rel="icon" href="images/profile1.png" type="image/png">
+
     <!-- External CSS -->
-    <link rel="stylesheet" href="/style.css">
-    <!-- <link rel="stylesheet" href="/static/css/style.css"> -->
+    <link rel="stylesheet" href="style.css"> 
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Exo:400,700" rel="stylesheet">
@@ -22,7 +21,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap">
 
- 
+
     <script>
         // 1 LETS TALK
         function makePhoneCall() {
@@ -45,7 +44,7 @@
             });
 
             chatbotIcon.addEventListener('mouseout', function () {
-                chatbotImage.src = 'images/whatsapp.png'; // Swap back to default image
+                chatbotImage.src = 'images/socials/whatsapp.png'; // Swap back to default image
             });
         });
   
@@ -109,6 +108,80 @@
                 return false; // Invalid phone number
             }
         }
+   
+        // SHAHIN ANIMATION
+        document.addEventListener("DOMContentLoaded", function() {
+            const textElement = document.getElementById('shahin-animated-text');
+            const textArray = ['S', 'SH', 'SHA', 'SHAH', 'SHAHI', 'SHAHIN']; // Array of text states
+            let index = 0; // To keep track of the current text state
+            let isReversing = false; // Flag to determine the direction of the animation
+
+            function animateText() {
+                if (!isReversing) {
+                    if (index < textArray.length) {
+                        textElement.textContent = textArray[index]; // Show the next part of the text
+                        index++;
+                        setTimeout(animateText, 500); // Continue showing the next letter after 0.5 seconds
+                    } else {
+                        // Wait for 2 seconds after displaying the full text
+                        setTimeout(() => {
+                            isReversing = true; // Start the reversing animation
+                            index--; // Start removing letters
+                            animateText();
+                        }, 2000); // 2-second delay before reversing
+                    }
+                } else {
+                    if (index >= 0) {
+                        textElement.textContent = textArray[index]; // Hide the text letter by letter
+                        index--;
+                        setTimeout(animateText, 70); // Continue hiding the next letter every 0.07 seconds
+                    } else {
+                        // Ensure the element is empty after hiding all text
+                        textElement.textContent = ''; // Hide "S" as well
+                        // Wait for 2 seconds after the text is fully hidden
+                        setTimeout(() => {
+                            isReversing = false; // Restart the animation
+                            index = 0; // Reset index to start the animation again
+                            animateText(); // Restart the animation after the pause
+                        }, 2000); // 2-second delay before restarting
+                    }
+                }
+            }
+
+            // Start the animation
+            animateText(); // Run the animation
+        });
+
+        
+ 
+
+        // P ANIMATION  
+        document.addEventListener("DOMContentLoaded", function() {
+            const fullText = 'An <strong>AI Developer</strong> specializing in crafting cutting-edge solutions in computer vision, driving breakthroughs, and advancing next-generation AI.';
+            const typingContainer = document.getElementById('typing-container');
+
+            // Extract the part to be typed and the static part
+            const staticPart = 'An <strong>AI Developer</strong> ';
+            const typingPart = fullText.substring(staticPart.length);
+
+            // Directly show the static part
+            typingContainer.innerHTML = staticPart;
+
+            let index = 0;
+
+            function type() {
+                if (index < typingPart.length) {
+                    typingContainer.innerHTML += typingPart.charAt(index);
+                    index++;
+                    setTimeout(type, 40); // Typing speed
+                } else {
+                    typingContainer.style.borderRight = 'none'; // Remove cursor after typing completes
+                }
+            }
+
+            // Start typing animation for the remaining part
+            type();
+        });
  
 
     </script>
@@ -117,6 +190,7 @@
 <body>   
     <!-- Navigation Bar -->
     <div class="navbar">
+        <img src="images/profile1.png" class="navbar-left-img"> 
         <a href="" class="navbar-left">MUHAMMAD SHAHIN CS</a>
         <div class="navbar-right">
             <a href="#home">Home</a>
@@ -142,18 +216,16 @@
     <!-- HOME Section --> 
     <div id="home">  
         <div class="profile-container">
-            <img src="images/profilee.png" alt="Profile Photo" class="profile-photo">
-            <div class="border-rectangle1"></div> 
-            <div class="profile-info">
-                <h1>HEY, I'M SHAHIN</h1> 
-                <p>An <strong>AI Developer</strong> specializing in crafting cutting-edge solutions in computer vision, driving breakthroughs, and advancing next-generation AI</p> 
+            <!-- <img src="images/profilee.png" alt="Profile Photo" class="profile-photo"> -->
+            <!-- <div class="border-rectangle1"></div>  -->
+            <div class="profile-info">  
+                <h1 id="shahin-animated-text">SHAHIN</h1> <!-- Animated Text -->   
+                <h1>HEY, I'M SHAHIN</h1>           <!-- Original Text --> 
+                <p id="typing-container" class="typing-container"></p>  
+                <!-- <p>An <strong>AI Developer</strong> specializing in crafting cutting-edge solutions in computer vision, driving breakthroughs, and advancing next-generation AI</p>  -->
                 <a href="images/resume.pdf" class="download-btn" download>Download CV</a>  
-                <a href="javascript:void(0);" onclick="makePhoneCall()" class="lets-talk-btn">Let's Talk</a>  
-                <!-- <a href="javascript:void(0);" onclick="makePhoneCall()" class="lets-talk-btn">Let's Talk
-                    <img src="images/call.png" width="30px" height="30px" class="hover-img">
-                </a> -->   
-                <a href="#about" class="more-about-me-btn">Know More</a> 
-                <!-- <a href="#about" class="more-about-me-btn">More About Me</a> -->
+                <a href="javascript:void(0);" onclick="makePhoneCall()" class="lets-talk-btn">Let's Talk</a>   
+                <a href="#about" class="more-about-me-btn">Know More</a>  
             </div>
         </div>  
         <div class="center-rect-circle">
@@ -273,7 +345,7 @@
                 </div>
                 <div class="project-info">
                     <div class="project-title">
-                        <h1>AI INFRASTRUCTURE INSPECTION 1</h1>
+                        <h1>AI DEFECT INSPECTION</h1>
                     </div>
                     <div class="project-desc">
                         <p>AI Infrastructure Inspection revolutionizes critical inspections with drone technology, enhancing efficiency, safety, and cost-effectiveness while reducing risks.</p>
@@ -288,7 +360,7 @@
                 </div>
                 <div class="project-info">
                     <div class="project-title">
-                        <h1>AI INFRASTRUCTURE INSPECTION 2</h1>
+                        <h1>VISION</h1>
                     </div>
                     <div class="project-desc">
                         <p>AI Infrastructure Inspection revolutionizes critical inspections with drone technology, enhancing efficiency, safety, and cost-effectiveness while reducing risks.</p>
@@ -303,7 +375,7 @@
                 </div>
                 <div class="project-info">
                     <div class="project-title">
-                        <h1>AI INFRASTRUCTURE INSPECTION 3</h1>
+                        <h1>RETAIL ANALYTICS</h1>
                     </div>
                     <div class="project-desc">
                         <p>AI Infrastructure Inspection revolutionizes critical inspections with drone technology, enhancing efficiency, safety, and cost-effectiveness while reducing risks.</p>
@@ -318,7 +390,7 @@
                 </div>
                 <div class="project-info">
                     <div class="project-title">
-                        <h1>AI INFRASTRUCTURE INSPECTION 4</h1>
+                        <h1>COUNTER</h1>
                     </div>
                     <div class="project-desc">
                         <p>AI Infrastructure Inspection revolutionizes critical inspections with drone technology, enhancing efficiency, safety, and cost-effectiveness while reducing risks.</p>
@@ -333,7 +405,7 @@
                 </div>
                 <div class="project-info">
                     <div class="project-title">
-                        <h1>AI INFRASTRUCTURE INSPECTION 5</h1>
+                        <h1>FATIGUE DETECTION</h1>
                     </div>
                     <div class="project-desc">
                         <p>AI Infrastructure Inspection revolutionizes critical inspections with drone technology, enhancing efficiency, safety, and cost-effectiveness while reducing risks.</p>
@@ -342,6 +414,20 @@
             </div>
 
 
+            <!-- Project 6 -->
+            <div class="project">
+                <div class="project-img">
+                    <img src="images/concrete_inspection.png" alt="AI Infrastructure Inspection">
+                </div>
+                <div class="project-info">
+                    <div class="project-title">
+                        <h1>SAFETY INSPECTION</h1>
+                    </div>
+                    <div class="project-desc">
+                        <p>AI Infrastructure Inspection revolutionizes critical inspections with drone technology, enhancing efficiency, safety, and cost-effectiveness while reducing risks.</p>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -409,25 +495,25 @@
                 <!-- <h2 style="font-size: 20px;">Connect with us</h2>  -->
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/muhammad-shahin-c-s/" target="_blank" class="social-icon">
-                        <img src="images/linkedin.png" alt="LinkedIn">
+                        <img src="images/socials/linkedin.png" alt="LinkedIn">
                     </a>
                     <a href="https://github.com/Muhammad-Shahin-CS" target="_blank" class="social-icon">
-                        <img src="images/github.png" alt="GitHub">
+                        <img src="images/socials/github.png" alt="GitHub">
                     </a>
                     <a href="https://x.com/__shahin_shah" target="_blank" class="social-icon">
-                        <img src="images/twitter.png" alt="Twitter">
+                        <img src="images/socials/twitter.png" alt="Twitter">
                     </a>
                     <a href="https://www.threads.net/@__shahin_shah" target="_blank" class="social-icon">
-                        <img src="images/threads.png" alt="Thread">
+                        <img src="images/socials/threads.png" alt="Thread">
                     </a>
                     <a href="https://www.instagram.com/__shahin_shah" target="_blank" class="social-icon">
-                        <img src="images/instagram.png" alt="Instagram">
+                        <img src="images/socials/instagram.png" alt="Instagram">
                     </a>
                     <a href="https://wa.me/9656234530" target="_blank" class="social-icon">
-                        <img src="images/whatsapp.png" alt="WhatsApp">
+                        <img src="images/socials/whatsapp.png" alt="WhatsApp">
                     </a>
                     <a href="https://youtube.com/@__shahin_shah" target="_blank" class="social-icon">
-                        <img src="images/youtube.png" alt="YouTube">
+                        <img src="images/socials/youtube.png" alt="YouTube">
                     </a>
                 </div>
             </div>
