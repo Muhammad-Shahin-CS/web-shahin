@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Shahin CS | AI Developer</title>
+    <!-- Link to the Favicon --> 
+    <link rel="icon" href="images/profile1.png" type="image/png">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css"> 
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Exo:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap">
+
+
+    <script>
+        // 1 LETS TALK
+        function makePhoneCall() {
+                window.location.href = 'tel:9656234530';
+        } 
+
+        // CHAT WHATSAPP
+        function openWhatsApp() { 
+            const message = encodeURIComponent("Hi Shahin, I have visited your website, I would like to know about");
+            const url = `https://wa.me/9656234530?text=${message}`;
+            window.open(url, '_blank');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const chatbotIcon = document.querySelector('.chatbot-icon');
+            const chatbotImage = document.getElementById('chatbot-image');
+
+            chatbotIcon.addEventListener('mouseover', function () {
+                chatbotImage.src = 'images/whatsapp.png'; // Swap to hive image
+            });
+
+            chatbotIcon.addEventListener('mouseout', function () {
+                chatbotImage.src = 'images/socials/whatsapp.png'; // Swap back to default image
+            });
+        });
+  
+        // 3 CONTACT 
+        function handleFormSubmit() {
+            var isEmailValid = validateEmail(); // Validate email
+            var isPhoneValid = validatePhone(); // Validate phone
+
+            if (isEmailValid && isPhoneValid) {
+                showPopup(); // Show the popup only if both validations pass
+            }
+            return false; // Prevent form submission
+        }
+
+        // Show the popup and clear the form fields
+        function showPopup() {
+            var popup = document.getElementById('popup-message');
+            popup.style.visibility = 'visible';
+            popup.style.opacity = '1';
+
+            // Clear the form fields after showing the popup
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('message').value = '';
+
+            setTimeout(function() {
+                popup.style.opacity = '0';
+                setTimeout(function() {
+                    popup.style.visibility = 'hidden';
+                }, 1000); // Match the transition duration
+            }, 4000); // Duration the popup stays visible
+        }
+
+        // Validate email field
+        function validateEmail() {
+            const emailInput = document.getElementById('email').value;
+            const emailError = document.getElementById('email-error');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email pattern
+            
+            if (emailPattern.test(emailInput)) {
+                emailError.textContent = ''; // Clear any previous error message
+                return true; // Valid email
+            } else {
+                emailError.textContent = 'Please enter a valid email address';
+                return false; // Invalid email
+            }
+        }
+
+        // Validate phone field
+        function validatePhone() {
+            const phoneInput = document.getElementById('phone').value;
+            const phoneError = document.getElementById('phone-error');
+            const phonePattern = /^\d{7,}$/; // Phone number pattern (at least 7 digits)
+            
+            if (phonePattern.test(phoneInput)) {
+                phoneError.textContent = ''; // Clear any previous error message
+                return true; // Valid phone number
+            } else {
+                phoneError.textContent = 'Please enter a valid phone number';
+                return false; // Invalid phone number
+            }
+        }
+   
+        // SHAHIN ANIMATION
+        document.addEventListener("DOMContentLoaded", function() {
+            const textElement = document.getElementById('shahin-animated-text');
+            const textArray = ['S', 'SH', 'SHA', 'SHAH', 'SHAHI', 'SHAHIN']; // Array of text states
+            let index = 0; // To keep track of the current text state
+            let isReversing = false; // Flag to determine the direction of the animation
+
+            function animateText() {
+                if (!isReversing) {
+                    if (index < textArray.length) {
+                        textElement.textContent = textArray[index]; // Show the next part of the text
+                        index++;
+                        setTimeout(animateText, 500); // Continue showing the next letter after 0.5 seconds
+                    } else {
+                        // Wait for 2 seconds after displaying the full text
+                        setTimeout(() => {
+                            isReversing = true; // Start the reversing animation
+                            index--; // Start removing letters
+                            animateText();
+                        }, 2000); // 2-second delay before reversing
+                    }
+                } else {
+                    if (index >= 0) {
+                        textElement.textContent = textArray[index]; // Hide the text letter by letter
+                        index--;
+                        setTimeout(animateText, 70); // Continue hiding the next letter every 0.07 seconds
+                    } else {
+                        // Ensure the element is empty after hiding all text
+                        textElement.textContent = ''; // Hide "S" as well
+                        // Wait for 2 seconds after the text is fully hidden
+                        setTimeout(() => {
+                            isReversing = false; // Restart the animation
+                            index = 0; // Reset index to start the animation again
+                            animateText(); // Restart the animation after the pause
+                        }, 2000); // 2-second delay before restarting
+                    }
+                }
+            }
+
+            // Start the animation
+            animateText(); // Run the animation
+        });
+
+        
+ 
+
+        // P ANIMATION  
+        document.addEventListener("DOMContentLoaded", function() {
+            const fullText = 'An <strong>AI Developer</strong> specializing in crafting cutting-edge solutions in computer vision, driving breakthroughs, and advancing next-generation AI.';
+            const typingContainer = document.getElementById('typing-container');
+
+            // Extract the part to be typed and the static part
+            const staticPart = 'An <strong>AI Developer</strong> ';
+            const typingPart = fullText.substring(staticPart.length);
+
+            // Directly show the static part
+            typingContainer.innerHTML = staticPart;
+
+            let index = 0;
+
+            function type() {
+                if (index < typingPart.length) {
+                    typingContainer.innerHTML += typingPart.charAt(index);
+                    index++;
+                    setTimeout(type, 40); // Typing speed
+                } else {
+                    typingContainer.style.borderRight = 'none'; // Remove cursor after typing completes
+                }
+            }
+
+            // Start typing animation for the remaining part
+            type();
+        });
+ 
+
+    </script>
+
+</head>
+<body>   
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <img src="images/profile1.png" class="navbar-left-img"> 
+        <a href="" class="navbar-left">MUHAMMAD SHAHIN CS</a>
+        <div class="navbar-right">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a> 
+
+            <!-- Dropdown Menu -->
+            <div class="dropdown">
+                <button class="dropbtn">Socials</button>
+                <div class="dropdown-content">
+                    <a href="https://www.linkedin.com/in/muhammad-shahin-c-s/" target="_blank" class="dropdown-link">LinkedIn</a>
+                    <a href="https://github.com/Muhammad-Shahin-CS" target="_blank" class="dropdown-link">GitHub</a>
+                    <a href="https://x.com/__shahin_shah" target="_blank" class="dropdown-link">Twitter</a>
+                    <a href="https://www.threads.net/@__shahin_shah" target="_blank" class="dropdown-link">Threads</a>
+                    <a href="https://www.instagram.com/__shahin_shah" target="_blank" class="dropdown-link">Instagram</a>
+                    <a href="https://wa.me/9656234530" target="_blank" class="dropdown-link">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>   
+ 
+    <!-- HOME Section --> 
+    <div id="home">  
+        <div class="profile-container">
+            <!-- <img src="images/profilee.png" alt="Profile Photo" class="profile-photo"> -->
+            <!-- <div class="border-rectangle1"></div>  -->
+            <div class="profile-info">  
+                <h1 id="shahin-animated-text">SHAHIN</h1> <!-- Animated Text -->   
+                <h1>HEY, I'M SHAHIN</h1>           <!-- Original Text --> 
+                <p id="typing-container" class="typing-container"></p>  
+                <!-- <p>An <strong>AI Developer</strong> specializing in crafting cutting-edge solutions in computer vision, driving breakthroughs, and advancing next-generation AI</p>  -->
+                <a href="images/resume.pdf" class="download-btn" download>Download CV</a>  
+                <a href="javascript:void(0);" onclick="makePhoneCall()" class="lets-talk-btn">Let's Talk</a>   
+                <a href="#about" class="more-about-me-btn">Know More</a>  
+            </div>
+        </div>  
+        <div class="center-rect-circle">
+            <div class="ball"></div>
+        </div>    
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+      
+
+
+
+
+    
+    <!-- ABOUT Section -->
+    <div id="about" class="area">  
+        <div class="intro-name">
+            <h2>ABOUT ME</h2>
+        </div> 
+            <div class="violet-rectangle"></div>
+            <div class="intro-desc">
+                <p>Here you will find more information about me, what I do, and my current skills, primarily in programming and technology.</p>
+            </div>
+
+            <div class="about-content">
+                <!-- Left Side Content -->
+                <div class="about-left">
+                    <h2>Get to know me!</h2>
+                    <p>I'm an AI Developer with a strong focus on Computer Vision, building and deploying advanced AI models that solve real-world problems. My work spans the full spectrum of AI development, from creating and curating datasets to building, training, fine-tuning, and optimizing models, to seamless deployment into production environments and integrating them with existing systems.</p>
+                    <br>
+                    <p>Proficient in advanced frameworks such as TensorFlow, Keras, and PyTorch, I excel in developing and optimizing sophisticated AI models. My expertise encompasses the implementation of cutting-edge image processing and object detection techniques using YOLO and OpenCV. I possess a strong command of DevOps practices, including Docker and CI/CD Pipelines, which ensures efficient and reliable deployment processes. My capabilities also extend to web development, where I leverage Flask, HTML, and CSS to build robust and scalable applications. Furthermore, I am adept in Optical Character Recognition, constructing predictive and generative AI models, and performing comprehensive data analysis to generate actionable insights. My multifaceted skill set is aimed at delivering high-impact solutions and driving innovation across diverse technological domains.</p>
+                </div>
+                
+                <!-- Right Side Box -->
+                <div class="about-right">
+                    <h2>My Skills</h2> 
+                    <div class="info-box">
+                        <div class="skills-container">
+                            <!-- Skills listed in boxes -->
+                            <div class="skill-box">Python</div>
+                            <div class="skill-box">Machine Learning</div>
+                            <div class="skill-box">Deep Learning</div>
+
+                            <div class="skill-box">Computer Vision</div> 
+                            <div class="skill-box">Image Processing</div>
+                            <div class="skill-box">YOLO</div>
+
+                            <div class="skill-box">Keras</div>
+                            <div class="skill-box">TensorFlow</div> 
+                            <div class="skill-box">PyTorch</div>
+                            
+                            <div class="skill-box">OpenCV</div>
+                            <div class="skill-box">MediaPipe</div>
+                            <div class="skill-box">CUDA</div>
+
+                            <div class="skill-box">GitHub</div>
+                            <div class="skill-box">CI/CD</div>
+                            <div class="skill-box">Docker</div>
+
+                            <div class="skill-box">OCR</div> 
+                            <div class="skill-box">Web Scraping</div>
+                            <div class="skill-box">Flask</div>
+
+                            <div class="skill-box">HTML</div>
+                            <div class="skill-box">CSS</div>
+                            <div class="skill-box">Data Analysis</div>
+                            <!-- <div class="skill-box">Data Analysis (EDA)</div> -->
+
+                            <div class="skill-box">Camera Integration</div>  
+                            <div class="skill-box">Optimization</div>                              
+                            <!-- <div class="skill-box">Model Deployment and Optimization</div>  -->
+                            <div class="skill-box">Version Control</div> 
+                        </div>  
+                    </div>
+                </div>
+            </div> 
+    </div>
+
+    
+
+
+    <!-- PROJECTS Section -->
+    <div id="projects" class="area">  
+        <div class="projects-content"> 
+            <div class="intro-name">
+                <h2>PROJECTS</h2>
+            </div>
+            <div class="violet-rectangle"></div>  
+            <div class="intro-desc">
+                <p>Explore some of the projects I have worked on. Each project showcases different aspects of my expertise in AI and computer vision.</p>
+            </div>
+
+
+
+
+
+
+            <!-- Project 1 -->
+            <div class="project">
+                <div class="project-img">
+                    <img src="images/concrete_inspection.png" alt="AI Infrastructure Inspection">
+                </div>
+                <div class="project-info">
+                    <div class="project-title">
+                        <h1>AI DEFECT INSPECTION</h1>
+                    </div>
+                    <div class="project-desc">
+                        <p>AI Infrastructure Inspection revolutionizes critical inspections with drone technology, enhancing efficiency, safety, and cost-effectiveness while reducing risks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project">
+                <div class="project-img">
+                    <img src="images/concrete_inspection.png" alt="AI Infrastructure Inspection">
+                </div>
+                <div class="project-info">
+                    <div class="project-title">
+                        <h1>VISION</h1>
+                    </div>
+                    <div class="project-desc">
+                        <p>AI Infrastructure Inspection revolutionizes critical inspections with drone technology, enhancing efficiency, safety, and cost-effectiveness while reducing risks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project">
+                <div class="project-img">
+                    <img src="images/concrete_inspection.png" alt="AI Infrastructure Inspection">
+                </div>
+                <div class="project-info">
+                    <div class="project-title">
+                        <h1>RETAIL ANALYTICS</h1>
+                    </div>
+                    <div class="project-desc">
+                        <p>AI Infrastructure Inspection revolutionizes critical inspections with drone technology, enhancing efficiency, safety, and cost-effectiveness while reducing risks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project">
+                <div class="project-img">
+                    <img src="images/concrete_inspection.png" alt="AI Infrastructure Inspection">
+                </div>
+                <div class="project-info">
+                    <div class="project-title">
+                        <h1>COUNTER</h1>
+                    </div>
+                    <div class="project-desc">
+                        <p>AI Infrastructure Inspection revolutionizes critical inspections with drone technology, enhancing efficiency, safety, and cost-effectiveness while reducing risks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project">
+                <div class="project-img">
+                    <img src="images/concrete_inspection.png" alt="AI Infrastructure Inspection">
+                </div>
+                <div class="project-info">
+                    <div class="project-title">
+                        <h1>FATIGUE DETECTION</h1>
+                    </div>
+                    <div class="project-desc">
+                        <p>AI Infrastructure Inspection revolutionizes critical inspections with drone technology, enhancing efficiency, safety, and cost-effectiveness while reducing risks.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Project 6 -->
+            <div class="project">
+                <div class="project-img">
+                    <img src="images/concrete_inspection.png" alt="AI Infrastructure Inspection">
+                </div>
+                <div class="project-info">
+                    <div class="project-title">
+                        <h1>SAFETY INSPECTION</h1>
+                    </div>
+                    <div class="project-desc">
+                        <p>AI Infrastructure Inspection revolutionizes critical inspections with drone technology, enhancing efficiency, safety, and cost-effectiveness while reducing risks.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <!-- CONTACT Section -->   
+    <div id="contact" class="area"> 
+        <div class="context"> 
+            <div class="intro-name">
+                <h2>CONTACT</h2>
+            </div>
+            <div class="violet-rectangle"></div>
+            <div class="intro-desc">
+                <p>Feel free to contact me by submitting the form below, and I will get back to you as soon as possible.</p>
+            </div>      
+            <!-- <div class="contact-details"> 
+                <p class="contact-details">Email: shahin124shah@gmail.com</p>
+                <p class="contact-details">Phone No: 9656234533</p>
+            </div> --> 
+            <div class="contact-form">
+                <form onsubmit="return handleFormSubmit();">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>  
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <span id="email-error" style="color: red;"></span>  
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="text" id="phone" name="phone" required>
+                        <span id="phone-error" style="color: red;"></span>  
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Submit</button>
+                </form>
+            
+                <div class="popup" id="popup-message">
+                    Thank you! Your message has been successfully submitted.
+                </div>
+            </div> 
+        </div> 
+    </div> 
+
+    <!-- FOOTER Section -->
+    <div class="footer">
+        <div class="footer-content">
+            <div class="left-side">
+                <h2>MUHAMMAD SHAHIN CS</h2>
+                <p>AI Developer specializing in advanced computer vision and object detection technologies. Committed to pioneering innovative solutions and redefining the future of AI. Let's connect to explore new opportunities in AI.</p>
+            </div>
+            <div class="right-side">
+                <h2>SOCIALS</h2>
+                <!-- <h2 style="font-size: 20px;">Connect with us</h2>  -->
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/muhammad-shahin-c-s/" target="_blank" class="social-icon">
+                        <img src="images/socials/linkedin.png" alt="LinkedIn">
+                    </a>
+                    <a href="https://github.com/Muhammad-Shahin-CS" target="_blank" class="social-icon">
+                        <img src="images/socials/github.png" alt="GitHub">
+                    </a>
+                    <a href="https://x.com/__shahin_shah" target="_blank" class="social-icon">
+                        <img src="images/socials/twitter.png" alt="Twitter">
+                    </a>
+                    <a href="https://www.threads.net/@__shahin_shah" target="_blank" class="social-icon">
+                        <img src="images/socials/threads.png" alt="Thread">
+                    </a>
+                    <a href="https://www.instagram.com/__shahin_shah" target="_blank" class="social-icon">
+                        <img src="images/socials/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://wa.me/9656234530" target="_blank" class="social-icon">
+                        <img src="images/socials/whatsapp.png" alt="WhatsApp">
+                    </a>
+                    <a href="https://youtube.com/@__shahin_shah" target="_blank" class="social-icon">
+                        <img src="images/socials/youtube.png" alt="YouTube">
+                    </a>
+                </div>
+            </div>
+        </div> 
+        <div class="footer-bottom">
+            <hr class="center-line">  
+            <p class="copyright-text">© Copyright 2024. Made by 
+                <a href="https://shahin-shah.vercel.app/" target="_blank" style="color: white; font-weight: bold; text-decoration: underline; font-family: 'Arial', sans-serif;">Muhammad Shahin CS</a>.
+            </p>
+            
+        </div>
+    </div>
+        
+
+    <!-- CHATBOT Section -->
+    <div class="chatbot-icon" onclick="openWhatsApp()">
+        <span>Chat with me <span id="wave-emoji">👋</span></span>
+        <img src="images/whatsapp.png" alt="Chatbot" class="chatbot-img" id="chatbot-image">
+    </div>
+
+    
+
+</body>
+</html>
+
